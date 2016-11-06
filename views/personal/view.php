@@ -12,6 +12,7 @@ use yii\widgets\DetailView;
         'attributes' => [
             'idRegistro',
             'nombre',
+            'edad',
             'direccion',
             'telefono',
             'celular',
@@ -23,6 +24,12 @@ use yii\widgets\DetailView;
             'alergias',
             'enferCroni',
             'tutorResp',
+            'correo',
+            'nacionalidad',
+            'lugarNacimiento',
+            'estadoCivil',
+            'extranjero',
+            'Pasaporte_idPasaporte',
         ],
     ]) ?>
 

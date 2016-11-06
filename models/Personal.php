@@ -5,10 +5,11 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Personal".
+ * This is the model class for table "personal".
  *
  * @property integer $idRegistro
  * @property string $nombre
+ * @property string $edad
  * @property string $direccion
  * @property string $telefono
  * @property string $celular
@@ -20,6 +21,12 @@ use Yii;
  * @property string $alergias
  * @property string $enferCroni
  * @property string $tutorResp
+ * @property string $correo
+ * @property string $nacionalidad
+ * @property string $lugarNacimiento
+ * @property string $estadoCivil
+ * @property string $extranjero
+ * @property integer $Pasaporte_idPasaporte
  */
 class Personal extends \yii\db\ActiveRecord
 {
@@ -28,7 +35,7 @@ class Personal extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Personal';
+        return 'personal';
     }
 
     /**
@@ -37,14 +44,23 @@ class Personal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre', 'edad', 'direccion', 'telefono', 'celular', 'RFC', 'CURP', 'fechaNacimiento', 'nSeguro', 'tipoSangr', 'alergias', 'enferCroni', 'tutorResp', 'correo', 'lugarNacimiento', 'estadoCivil', 'extranjero', 'Pasaporte_idPasaporte'], 'required'],
             [['fechaNacimiento'], 'safe'],
+            [['Pasaporte_idPasaporte'], 'integer'],
             [['nombre', 'direccion', 'alergias', 'enferCroni', 'tutorResp'], 'string', 'max' => 200],
+            [['edad', 'tipoSangr', 'extranjero'], 'string', 'max' => 2],
             [['telefono'], 'string', 'max' => 7],
             [['celular'], 'string', 'max' => 10],
             [['RFC'], 'string', 'max' => 13],
             [['CURP'], 'string', 'max' => 18],
             [['nSeguro'], 'string', 'max' => 11],
-            [['tipoSangr'], 'string', 'max' => 2],
+            [['correo'], 'string', 'max' => 100],
+            [['nacionalidad'], 'string', 'max' => 50],
+            [['lugarNacimiento'], 'string', 'max' => 80],
+            [['estadoCivil'], 'string', 'max' => 45],
+            [['RFC'], 'unique'],
+            [['CURP'], 'unique'],
+            [['Pasaporte_idPasaporte'], 'exist', 'skipOnError' => true, 'targetClass' => Pasaporte::className(), 'targetAttribute' => ['Pasaporte_idPasaporte' => 'idPasaporte']],
         ];
     }
 
@@ -54,20 +70,26 @@ class Personal extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-
             'idRegistro' => 'Id Registro',
-            'nombre' => yii::t('app','Nombres completos'),
-            'direccion' => yii::t('app','Domicilio'),
-            'telefono' => yii::t('app','Telefono de casa'),
-            'celular' => yii::t('app','Celular'),
-            'RFC' => yii::t('app','RFC'),
-            'CURP' => yii::t('app','CURP'),
-            'fechaNacimiento' => yii::t('app','Fecha de nacimiento'),
-            'nSeguro' => yii::t('app','N° Seguro'),
-            'tipoSangr' => yii::t('app','Tipo de Sangre'),
-            'alergias' => yii::t('app','Alergias'),
-            'enferCroni' => yii::t('app','Enfermedades Cronicas'),
-            'tutorResp' => yii::t('app','Nombre del responsable'),
+            'nombre' => 'Nombre',
+            'edad' => 'Edad',
+            'direccion' => 'Direccion',
+            'telefono' => 'Telefono',
+            'celular' => 'Celular',
+            'RFC' => 'Rfc',
+            'CURP' => 'Curp',
+            'fechaNacimiento' => 'Fecha Nacimiento',
+            'nSeguro' => 'N Seguro',
+            'tipoSangr' => 'Tipo Sangr',
+            'alergias' => 'Alergias',
+            'enferCroni' => 'Enfer Croni',
+            'tutorResp' => 'Tutor Resp',
+            'correo' => 'Correo',
+            'nacionalidad' => 'Nacionalidad',
+            'lugarNacimiento' => 'Lugar Nacimiento',
+            'estadoCivil' => 'Estado Civil',
+            'extranjero' => 'Extranjero',
+            'Pasaporte_idPasaporte' => 'Pasaporte Id Pasaporte',
         ];
     }
 }

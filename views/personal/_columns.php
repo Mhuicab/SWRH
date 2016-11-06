@@ -20,16 +20,20 @@ return [
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'edad',
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'direccion',
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'telefono',
     ],
-    [
-        'class'=>'\kartik\grid\DataColumn',
-        'attribute'=>'celular',
-    ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'celular',
+    // ],
     // [
         // 'class'=>'\kartik\grid\DataColumn',
         // 'attribute'=>'RFC',
@@ -61,6 +65,30 @@ return [
     // [
         // 'class'=>'\kartik\grid\DataColumn',
         // 'attribute'=>'tutorResp',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'correo',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'nacionalidad',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'lugarNacimiento',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'estadoCivil',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'extranjero',
+    // ],
+    // [
+        // 'class'=>'\kartik\grid\DataColumn',
+        // 'attribute'=>'Pasaporte_idPasaporte',
     // ],
     [
         'class' => 'kartik\grid\ActionColumn',

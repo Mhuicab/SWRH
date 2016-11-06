@@ -37,7 +37,7 @@ class PersonalController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
+    {    
         $searchModel = new PersonalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -54,7 +54,7 @@ class PersonalController extends Controller
      * @return mixed
      */
     public function actionView($id)
-    {
+    {   
         $request = Yii::$app->request;
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -65,7 +65,7 @@ class PersonalController extends Controller
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
+                ];    
         }else{
             return $this->render('view', [
                 'model' => $this->findModel($id),
@@ -82,7 +82,7 @@ class PersonalController extends Controller
     public function actionCreate()
     {
         $request = Yii::$app->request;
-        $model = new Personal();
+        $model = new Personal();  
 
         if($request->isAjax){
             /*
@@ -91,14 +91,14 @@ class PersonalController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Registro de Personal",
+                    'title'=> "Create new Personal",
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
-
-                ];
+        
+                ];         
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
@@ -106,18 +106,18 @@ class PersonalController extends Controller
                     'content'=>'<span class="text-success">Create Personal success</span>',
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
-
-                ];
-            }else{
+        
+                ];         
+            }else{           
                 return [
                     'title'=> "Create new Personal",
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Cancelar',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                                Html::button('Guardar',['class'=>'btn btn-primary','type'=>"submit"])
-
-                ];
+                    'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+        
+                ];         
             }
         }else{
             /*
@@ -131,7 +131,7 @@ class PersonalController extends Controller
                 ]);
             }
         }
-
+       
     }
 
     /**
@@ -144,7 +144,7 @@ class PersonalController extends Controller
     public function actionUpdate($id)
     {
         $request = Yii::$app->request;
-        $model = $this->findModel($id);
+        $model = $this->findModel($id);       
 
         if($request->isAjax){
             /*
@@ -153,13 +153,13 @@ class PersonalController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Actualizar datos de Personal #".$id,
+                    'title'=> "Update Personal #".$id,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Cancelar',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                                Html::button('Guardar',['class'=>'btn btn-primary','type'=>"submit"])
-                ];
+                    'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                ];         
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
@@ -169,7 +169,7 @@ class PersonalController extends Controller
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
+                ];    
             }else{
                  return [
                     'title'=> "Update Personal #".$id,
@@ -178,7 +178,7 @@ class PersonalController extends Controller
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
-                ];
+                ];        
             }
         }else{
             /*
@@ -230,7 +230,7 @@ class PersonalController extends Controller
      * @return mixed
      */
     public function actionBulkDelete()
-    {
+    {        
         $request = Yii::$app->request;
         $pks = explode(',', $request->post( 'pks' )); // Array or selected records primary keys
         foreach ( $pks as $pk ) {
@@ -250,7 +250,7 @@ class PersonalController extends Controller
             */
             return $this->redirect(['index']);
         }
-
+       
     }
 
     /**
