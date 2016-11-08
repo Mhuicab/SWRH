@@ -27,7 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('../views/imagenes/RRHH.png',['alt'=>Yii::$app->name, 'width' => '170px', 'height' => '38px' ]),
+        'brandLabel' => Html::img('../views/imagenes/RRHH nav.png',['alt'=>Yii::$app->name, 'width' => '170px', 'height' => '38px' ]),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,7 +39,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Personal', 'url' => ['/personal/index']],
 
-            Yii::$app->user->isGuest ? (
+          /*  Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
@@ -50,7 +50,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            )*/
         ],
     ]);
     NavBar::end();

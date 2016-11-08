@@ -1,0 +1,36 @@
+body{
+  height: 100%;
+}
+
+.navbar-inverse {
+    background-color: #E2F2F1;
+    border-color: #E2F2F1;
+}
+.navbar-fixed-top {
+    top: 1;
+    border-width: 0 0 1px;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #101010;
+    background-color: #D1D6D6;
+}
+/*.panel-primary {
+    border-color: #FF9696;
+}*/
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #FF9696;
+    border-color: #337ab7;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px  transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.lead{
+  font-family: sans-serif;
+  font-style: italic;
+}
